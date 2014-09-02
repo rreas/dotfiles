@@ -1,0 +1,83 @@
+set nocompatible
+
+" Use pathogen to manage plugins.
+execute pathogen#infect()
+
+" Settings not in vim-sensible.
+set number
+set cursorline
+set hlsearch
+set smartcase
+set ignorecase
+set expandtab
+set autoindent
+set smartindent
+set relativenumber
+set hidden
+set textwidth=80
+set clipboard=unnamed
+
+let &colorcolumn=join(range(81,999),",")
+
+" Always use 2 spaces.
+set shiftwidth=2
+set tabstop=2
+
+" Ignore some files in ctrl-p
+set wildignore+=*/tmp/*,*/vendor/bundle/*
+
+" Global directory for undo files.
+set undofile
+set undodir^=~/.vim/undo
+
+" With syntax group debugging.
+set statusline=   " clear the statusline for when vimrc is reloaded
+set statusline+=\                            " single space
+set statusline+=%f\                          " file name
+set statusline+=[%{strlen(&ft)?&ft:'none'}]  " filetype
+set statusline+=%h%m%r%w                     " flags
+set statusline+=%=                           " right align
+"set statusline+=(%{synIDattr(synID(line('.'),col('.'),1),'name')})\  " highlight
+set statusline+=%P
+
+" File encding.
+set encoding=utf-8
+
+" Where to store swap files.
+set directory=/tmp,/var/tmp,.
+
+" Set mapleader to an easier key.
+let mapleader=","
+let maplocalleader=","
+
+" Well...
+nnoremap ; :
+vnoremap ; :
+
+" Themes...
+set background=dark
+colorscheme solarized
+
+" Mappings
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap H ^
+nnoremap ^ <nop>
+nnoremap L $
+nnoremap $ <nop>
+inoremap jk <esc>
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
+
+" Proper filetype for markdown files.
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+

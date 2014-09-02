@@ -1,0 +1,11 @@
+#!/bin/bash
+
+e=$(icalBuddy -li 1 -n -nrd -b "" -df "%b %e" -tf "%H:%M" -ps "| @ |" -eed \
+    -nc -eep "location,url,notes,attendees" eventsToday)
+
+if [ "$e" == "" ]; then
+  echo "Freedom!"
+else
+  echo "$e"
+fi
+
