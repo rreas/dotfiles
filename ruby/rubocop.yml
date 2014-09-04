@@ -1,0 +1,95 @@
+AllCops:
+  Include:
+    - 'Gemfile'
+    - '*.gemspec'
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old\.rb$/
+
+ParameterLists:
+  Max: 4
+CountKeywordArgs: true
+
+ClassLength:
+  Max: 100
+
+LineLength:
+  Max: 80
+
+MethodLength:
+  CountComments: false
+Max: 15
+
+BlockNesting:
+  Max: 2
+
+CollectionMethods:
+  PreferredMethods:
+    map:       'collect'
+    reduce:    'inject'
+    find:      'detect'
+    find_all:  'select'
+    delete_if: 'reject'
+
+Documentation:
+  Enabled: false
+
+# # Enforce Ruby 1.9 or higher hash syntax
+# HashSyntax:
+#   EnforcedStyle: hash_rockets
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+DotPosition:
+  Enabled: false
+
+Encoding:
+  Enabled: false
+
+AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+EndAlignment:
+  AlignWith: variable
+
+CaseIndentation:
+  IndentWhenRelativeTo: end
+  IndentOneStep: false
+
+Lambda:
+  Enabled: false
+
+RaiseArgs:
+  EnforcedStyle: compact
+
+TrailingComma:
+  Enabled: false
+
+MethodName:
+  Enabled: false
+
+ClassVars:
+  Enabled: false
+
+CaseEquality:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  ()
+    '%i': ()
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': '[]'
+    '%W': '[]'
+    '%x': ()

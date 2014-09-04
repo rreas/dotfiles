@@ -37,3 +37,8 @@ To update the dotfiles, run ``ruby bin/update``.
 ## License
 
 Copyright 2014, Q-Centrix. [MIT License](http://opensource.org/licenses/MIT)
+
+## Todo
+
+-[] Agreed font, color scheme, width.
+-[] Alias for ``tmux -S /tmp/pair attach``
