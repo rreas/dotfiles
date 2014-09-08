@@ -40,6 +40,7 @@ Plugin 'tpope/vim-foreplay'
 Plugin 'tpope/vim-classpath'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -47,6 +48,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'godlygeek/tabular'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/vim-easy-align'
+
 bufexplorer.zip         rspec.vim               vim-javascript          vim-rubocop
 ctrlp.vim               tslime.vim              vim-json                vim-sensible
 paredit.vim             vim-coffee-script       vim-jsx
@@ -110,6 +112,23 @@ inoremap <c-k>      <up>
 inoremap <c-l>      <right>
 nnoremap <C-h>      :nohl<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>n :call RenameFile()<cr>
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
 " Themes...
 set background=dark
 colorscheme solarized
@@ -119,3 +138,4 @@ let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
 
 " Proper filetype for markdown files.
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
