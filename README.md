@@ -5,19 +5,21 @@ to set up OS X machines for development.
 
 ## Installation/Setup
 
-1. Clone the repository to the ``~/.dotfiles`` folder.
+1. Ensure [file-system encryption is on](http://support.apple.com/kb/ht4790). 
+
+2. Clone the repository to the ``~/.dotfiles`` folder.
 
 ```bash
 git clone git@github.com:currica/dotfiles.git ~/.dotfiles
 ```
 
-2. Run the bootstrapping script.
+3. Run the bootstrapping script.
 
 ```bash
 ruby bin/bootstrap
 ```
 
-3. Start a session
+4. Start a session
 
   a. Tmux ``tmux new``
   b. Rails ``tmuxinator new rails``
