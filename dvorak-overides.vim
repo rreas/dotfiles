@@ -1,54 +1,4 @@
 " ========================================================================
-" Vundle
-" ========================================================================
-
-
-
-
-
-
-set shell=/bin/bash
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle (required)!
-Plugin 'gmarik/vundle'
-
-Plugin 'ervandew/supertab'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'pangloss/vim-javascript'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'wincent/Command-T'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'koron/nyancat-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'blackrush/vim-gocode'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'Rykka/riv.vim'
-Plugin 'mv/mv-vim-nginx'
-Plugin 'tpope/vim-foreplay'
-Plugin 'tpope/vim-classpath'
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-rails'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-Plugin 'junegunn/vim-easy-align'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -84,7 +34,7 @@ vmap <Enter> <Plug>(EasyAlign)*
 
 let mapleader = ","
 
-nmap <Leader>a :Ack 
+nmap <Leader>a :Ack
 map <Leader>ac :sp app/controllers/application_controller.rb<cr>
 map <Leader>b :!bundle install<cr>
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>

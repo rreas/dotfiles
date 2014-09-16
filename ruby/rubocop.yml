@@ -12,6 +12,7 @@ AllCops:
 
 ParameterLists:
   Max: 4
+
 CountKeywordArgs: true
 
 ClassLength:

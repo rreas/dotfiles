@@ -1,14 +1,15 @@
-set nocompatible
-filetype off
-
+set nocompatible              " be iMproved, required
+filetype off                  " required
 set shell=/bin/zsh
 
-" Vundle
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle (required)!
 Plugin 'gmarik/vundle'
+
+Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'tpope/vim-sensible'
 Plugin 'ervandew/supertab'
@@ -20,7 +21,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'wincent/Ctrl-P'
 
 " Syntax Highlighting
 Plugin 'pangloss/vim-javascript'
@@ -49,20 +49,16 @@ Plugin 'godlygeek/tabular'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/vim-easy-align'
 
-bufexplorer.zip         rspec.vim               vim-javascript          vim-rubocop
-ctrlp.vim               tslime.vim              vim-json                vim-sensible
-paredit.vim             vim-coffee-script       vim-jsx
-rainbow_parentheses.vim vim-endwise             vim-rspec
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let &colorcolumn=join(range(81,999),",")
-
 " Always use 2 spaces.
 set shiftwidth=2
 set tabstop=2
+
+" Set relative number
+set relativenumber
 
 " Ignore some files in ctrl-p
 set wildignore+=*/tmp/*,*/vendor/bundle/*
@@ -111,6 +107,7 @@ inoremap <c-j>      <down>
 inoremap <c-k>      <up>
 inoremap <c-l>      <right>
 nnoremap <C-h>      :nohl<cr>
+inoremap <c-o>      <esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
@@ -130,6 +127,7 @@ map <Leader>n :call RenameFile()<cr>
 set list listchars=tab:»·,trail:·
 
 " Themes...
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
@@ -138,4 +136,3 @@ let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
 
 " Proper filetype for markdown files.
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-

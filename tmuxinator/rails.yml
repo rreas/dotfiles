@@ -1,5 +1,4 @@
-name: qcentrix
-root: ~/qcentrix/web
+root: "$PWD"
 
 pre: git checkout master && git pull origin master
 
@@ -9,7 +8,7 @@ windows:
     panes:
       - vim
       - test
+  - bash:    "git status"
   - server:  "bundle exec rails server"
   - console: "bundle exec rails console"
   - search:  "elasticsearch start"
-  - bash:    "git status"
