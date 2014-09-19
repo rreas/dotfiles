@@ -3,6 +3,7 @@ class Zsh
     def set_symlinks
       puts 'setting ZSH symlinks'
       `ln -s #{zsh_config} "$HOME/.zshrc"`
+      `ln -s #{zshenv_config} "$HOME/.zshenv"`
     end
 
     def setup
@@ -14,6 +15,10 @@ class Zsh
 
     def zsh_config
       "$HOME/.dotfiles/zsh/zshrc"
+    end
+
+    def zshenv_config
+      "$HOME/.dotfiles/zsh/zshenv"
     end
   end
 end
