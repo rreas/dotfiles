@@ -2,56 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set shell=/bin/zsh
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle (required)!
-Plugin 'gmarik/vundle'
-
-Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'tpope/vim-sensible'
-Plugin 'ervandew/supertab'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-unimpaired'
-
-" Syntax Highlighting
-Plugin 'pangloss/vim-javascript'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'koron/nyancat-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'blackrush/vim-gocode'
-
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'Rykka/riv.vim'
-Plugin 'mv/mv-vim-nginx'
-Plugin 'tpope/vim-foreplay'
-Plugin 'tpope/vim-classpath'
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-Plugin 'junegunn/vim-easy-align'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Vundle packages
+source $HOME/.dotfiles/vim/vundle.vim
 
 " Always use 2 spaces.
 set shiftwidth=2
@@ -63,10 +15,45 @@ set relativenumber
 " Ignore some files in ctrl-p
 set wildignore+=*/tmp/*,*/vendor/bundle/*
 
-" Global directory for undo files.
-set undofile
-set undodir^=~/.vim/undo
+set nocompatible
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set history=500		" keep 500 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set autoindent
+set showmatch
+set nowrap
+set backupdir=~/.tmp
+set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
+set autoread
+set wmh=0
+set viminfo+=!
+set guioptions-=T
+set guifont=Triskweline_10:h10
+set et
+set sw=2
+set smarttab
+set ts=2 "set indent to two spaces
+set noincsearch
+set ignorecase smartcase
+set laststatus=2  " Always show status line.
+set relativenumber
+set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
+set autoindent " always set autoindenting on
+set bg=light
 
+" Set the tag file search order
+set tags=./tags;
+set tags+=gems.tags
+
+" Use _ as a word-separator
+" set iskeyword-=_
+
+" Use Silver Searcher instead of grep
+set grepprg=ag
+
+" Get rid of the delay when hitting esc!
+set noesckeys
 " With syntax group debugging.
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=\                            " single space
@@ -83,56 +70,28 @@ set encoding=utf-8
 " Where to store swap files.
 set directory=~/.tmp
 
-" Set mapleader to an easier key.
-let mapleader=","
-let maplocalleader=","
+" Keyboard shortcuts
+source $HOME/.dotfiles/vim/keyboard_shortcuts.vim
 
-nnoremap <Leader>a  :Ack
-map      <Leader>a  :call    RunAllSpecs()<CR>
-nnoremap <Leader>b  :!bundle install<cr>
-nnoremap <Leader>e  :e       <C-R>=expand("%:p:h") . '/'<CR>
-nnoremap <leader>ev :vsplit  $MYVIMRC<cr>
-map      <Leader>l  :call    RunLastSpec()<CR>
-nnoremap <Leader>q  :e       ~/qcentrix/
-nnoremap <Leader>s  :split   <C-R>=expand("%:p:h") . '/'<CR>
-map      <Leader>s  :call    RunNearestSpec()<CR>
-nnoremap <leader>sv :source  $MYVIMRC<cr>
-map      <Leader>t  :call    RunCurrentSpecFile()<CR>
-nnoremap <Leader>v  :vnew    <C-R>=expand("%:p:h") . '/'<CR>
-nnoremap H          ^
-nnoremap L          $
-inoremap jk         <esc>
-inoremap <c-h>      <left>
-inoremap <c-j>      <down>
-inoremap <c-k>      <up>
-inoremap <c-l>      <right>
-nnoremap <C-h>      :nohl<cr>
-inoremap <c-o>      <esc>
+" Rename current file (courtesy of Gary Bernhardt)
+source $HOME/.dotfiles/vim/rename_current_file.vim
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE (thanks Gary Bernhardt)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-map <Leader>n :call RenameFile()<cr>
+" Themes
+source $HOME/.dotfiles/vim/themes.vim
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-" Themes...
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-
 " RSpec.vim mappings
 let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
 
-" Proper filetype for markdown files.
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" Syntax Highlighting
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown textwidth=79 colorcolumn=80
+autocmd BufNewFile,BufReadPost nginx.conf set filetype=nginx
+autocmd BufNewFile,BufReadPost *.rb,Gemfile,Vagrantfile,*.thor set filetype=ruby textwidth=79 colorcolumn=80
+
+" Remove trailing whitespace!
+au BufWritePre *.rb :%s/\s\+$//e
+au BufWritePre *.rake :%s/\s\+$//e
+au BufWritePre *.haml :%s/\s\+$//e
+au BufWritePre *.coffee :%s/\s\+$//e
