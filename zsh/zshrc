@@ -1,6 +1,5 @@
 # Homebrew and Chruby configuration
 ln -s "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh" /usr/local/share/zsh/site-functions
-source /usr/local/share/chruby/chruby.sh
 
 # Save a ton of history
 HISTSIZE=20000
@@ -10,3 +9,5 @@ SAVEHIST=20000
 # load aliases and variables
 source $HOME/.dotfiles/zsh/aliases.sh
 source $HOME/.dotfiles/zsh/variables.sh
+
+chruby ruby

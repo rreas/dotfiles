@@ -62,7 +62,8 @@ class Homebrew
       libyaml \
       openssl \
       readline \
-      vim
+      vim \
+      ctags
       `
     end
   end
