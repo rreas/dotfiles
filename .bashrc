@@ -1,1 +1,0 @@
-/Users/dillonwelch/Code/Personal/Config-Files/.bashrc
