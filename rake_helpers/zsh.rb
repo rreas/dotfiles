@@ -7,8 +7,8 @@ class Zsh
     end
 
     def setup
-      puts 'Change shell to homebrew version'
-      `chsh -s /usr/local/bin/zsh`
+      puts 'installing Oh-My-Zsh'
+      `git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
     end
 
     private
