@@ -2,23 +2,31 @@
 alias v='vim'
 
 # Navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias ~='cd ~'
-alias q="cd ~/qcentrix"
-alias aliases="v ~/.dotfiles/zsh/aliases.sh"
+alias q='cd ~/qcentrix'
+alias aliases='v ~/.dotfiles/zsh/aliases.sh'
 alias update_dotfiles='cd ~/.dotfiles && rake dotfiles:update'
-alias c="clear"
+alias c='clear'
+alias d='cd ~/.dotfiles'
+alias u='cd ..'
 
 # Starting a work session
-alias work='tmuxinator new rails'
+alias web='tmuxinator start web'
+alias work='web'
 
 # Joining a work session
 alias attach='tmux attach-session'
 
+# Other Tmux aliases
+alias tn='tmux new'
+alias tk='tmux kill-server'
+
 # Git Aliases
-alias amend="echo 'use gca'; git commit --amend"
+alias amend='echo "use gca"; git commit --amend'
+alias cleanup='git fetch origin --prune'
 alias ga='git add'
 alias gad='git add --all .'
 alias gb='git branch'
@@ -41,15 +49,15 @@ alias gpom='git push -u origin master'
 alias gs='git status'
 
 # Ruby
-alias b="bundle exec"
-alias be="echo 'use b'; bundle exec"
-alias bake="bundle exec rake"
-alias bi="bundle install"
-alias bu="bundle update"
+alias b='bundle exec'
+alias be='echo "use b"; bundle exec'
+alias bake='bundle exec rake'
+alias bi='bundle install'
+alias bu='bundle update'
 
 # Postgresql
-alias pgs="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgt="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
+alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgt='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
 
 # Show and hide files in Finder
 alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'

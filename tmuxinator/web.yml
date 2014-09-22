@@ -1,0 +1,14 @@
+name: web
+root: ~/qcentrix/web
+
+pre: git checkout master && git pull origin master
+
+windows:
+  - vim:
+    layout: main-vertical
+    panes:
+      - vim .
+      - git status
+  - server:  "bundle exec rails server"
+  - console: "bundle exec rails console"
+  - search:  "elasticsearch start"
