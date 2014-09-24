@@ -50,10 +50,13 @@ alias gs='git status'
 
 # Ruby
 alias b='bundle exec'
-alias be='echo "use b"; bundle exec'
-alias bake='bundle exec rake'
+alias be='echo "use b instead of be"; bundle exec'
+alias bake='echo "use bk instead of bake"; bundle exec rake'
+alias bk='bundle exec rake'
 alias bi='bundle install'
+alias bo='bundle open'
 alias bu='bundle update'
+alias r='bundle exec rspec'
 
 # Postgresql
 alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
@@ -62,3 +65,4 @@ alias pgt='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.l
 # Show and hide files in Finder
 alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+
