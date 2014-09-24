@@ -14,8 +14,14 @@ and [Tmux](http://tmux.sourceforge.net).
 
 ## Installing
 
+Fork this repo, [by following these
+instructions](https://help.github.com/articles/fork-a-repo).
+
+Then follow these instructions replacing ``<<YOUR NAME`` with your Github
+username.
+
 ```bash
-git clone git@github.com:currica/dotfiles.git ~/.dotfiles
+git clone git@github.com:<<YOUR NAME>>/dotfiles.git ~/.dotfiles
 gem install rake
 rake dotfiles:bootstrap
 ```
