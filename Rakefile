@@ -1,19 +1,28 @@
-Dir['./rake_helpers/*.rb'].each {|file| require file }
+Dir['./rake_helpers/*.rb'].each { |file| require file }
+
+task default: 'dotfiles:update'
+task bootstrap: [
+  'dotfiles:encryption_check',
+  'dotfiles:homebrew',
+  'dotfiles:software'
+]
 
 namespace :dotfiles do
-  task :bootstrap do
+  task :encryption_check do
     FileEncryption.check
+  end
 
+  task :homebrew do
     Homebrew.setup
+  end
 
-    [Zsh, Vim, Tmux, Tmuxinator, Git].each do |klass|
-      klass.set_symlinks
-    end
-
-    [Homebrew, Zsh, Ruby, Vim].each { |klass| klass.setup }
+  task :software do
+    [Zsh, Vim, Tmux, Tmuxinator, Git].each(&:set_symlinks)
+    [Zsh, Ruby, Vim].each(&:setup)
   end
 
   task :update do
+    puts 'nyan nyan nyan ...'
     # Github.pull_master
     #
     # Homebrew.update
