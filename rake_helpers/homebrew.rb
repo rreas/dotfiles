@@ -40,28 +40,15 @@ class Homebrew
       tmux \
       wget \
       git \
-      elasticsearch \
-      autoconf \
-      automake \
       go \
-      imagemagick \
       leiningen \
-      libelf \
-      libevent \
-      libxml2 \
-      libxslt \
       openssl \
       postgresql \
       chruby \
       ruby-build \
       node \
       zsh \
-      gdbm \
-      libffi \
       ruby-install \
-      libyaml \
-      openssl \
-      readline \
       vim \
       wemux \
       ctags
