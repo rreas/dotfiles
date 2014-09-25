@@ -63,6 +63,7 @@ class Homebrew
       openssl \
       readline \
       vim \
+      wemux \
       ctags
       `
     end
