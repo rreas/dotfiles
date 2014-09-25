@@ -1,5 +1,6 @@
 name: web
 root: ~/qcentrix/web
+tmux_command: wemux
 
 pre: git checkout master && git pull origin master
 

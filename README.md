@@ -11,6 +11,9 @@ and [Tmux](http://tmux.sourceforge.net).
 * [Map caps lock to Control (keyboard > modifier keys)](http://teohm.com/blog/2012/04/08/mac-tips-use-caps-lock-as-control-key/)
 * [Install Java JDK for OS X](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ([instructions](http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html))
 * [Set up an SSH key with Github](https://help.github.com/articles/generating-ssh-keys)
+* [Get the set of SSH keys of your fellow
+employees](mailto:nshook@q-centrix.com?Subject=keys%20please)
+* [Set laptop up for remote sharing, and add your host to wemux](https://github.com/zolrath/wemux#host-mode)
 
 ## Installing
 
@@ -33,10 +36,12 @@ To start a new session:
 ```bash
 work # or tmuxinator start rails
 ```
+
 To connect to a session:
 
 ```bash
-attach <name> # or TODO: ??
+ssh <user>@<ip>
+wemux client pair
 ```
 
 ## Updating

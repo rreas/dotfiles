@@ -18,4 +18,9 @@ SAVEHIST=20000
 source $HOME/.dotfiles/zsh/aliases.sh
 source $HOME/.dotfiles/zsh/variables.sh
 
+# load the latest ruby with Chruby
 chruby ruby
+ruby -v
+
+# # wemux config, a client logs on, then exits
+# wemux mirror; exit

@@ -12,17 +12,18 @@ alias update_dotfiles='cd ~/.dotfiles && rake dotfiles:update'
 alias c='clear'
 alias d='cd ~/.dotfiles'
 alias u='cd ..'
+alias uu='cd ../..'
 
 # Starting a work session
 alias web='tmuxinator start web'
 alias work='web'
 
 # Joining a work session
-alias attach='tmux attach-session'
+alias attach='wemux attach'
 
 # Other Tmux aliases
-alias tn='tmux new'
-alias tk='tmux kill-server'
+alias tn='wemux'
+alias tk='wemux stop'
 
 # Git Aliases
 alias amend='echo "use gca"; git commit --amend'
