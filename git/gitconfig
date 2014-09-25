@@ -1,10 +1,10 @@
 [user]
-  name = NAME
-  email = EMAIL
+  name = Russell Reas
+  email = russell.reas@gmail.com
 [push]
   default = simple
 [core]
-  excludesfile = /Users/NAME/.gitignore
+  excludesfile = /Users/rreas/.gitignore
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
