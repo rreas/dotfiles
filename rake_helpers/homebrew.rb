@@ -21,13 +21,13 @@ class Homebrew
     end
 
     def exists?
-      `brew`.match(%r(Example usage)) ? true : false
+      File.exist?('/usr/local/bin/brew')
     end
 
     def install
       puts 'Installing homebrew'
 
-      `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+      `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
     end
 
     def install_packages

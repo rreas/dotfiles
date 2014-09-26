@@ -1,74 +1,52 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 
 " Vundle packages
 source $HOME/.dotfiles/vim/vundle.vim
+
+set number
+set cursorline
+set hlsearch
+set smartcase
+set ignorecase
+set expandtab
+set autoindent
+set smartindent
+set relativenumber
+set hidden
+set textwidth=80
+set clipboard=unnamed
+
+let &colorcolumn=join(range(81,999),",")
 
 " Always use 2 spaces.
 set shiftwidth=2
 set tabstop=2
 
-" Set relative number
-set relativenumber
+" Global directory for undo files.
+set undofile
+set undodir^=~/.vim/undo
 
-" Ignore some files in ctrl-p
-set wildignore+=*/tmp/*,*/vendor/bundle/*
+" Where to store swap files.
+set directory=/tmp,/var/tmp,.
 
-set nocompatible
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set autoindent
-set showmatch
-set nowrap
-set backupdir=~/.tmp
-set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
-set autoread
-set wmh=0
-set viminfo+=!
-set guioptions-=T
-set guifont=Triskweline_10:h10
-set et
-set sw=2
-set smarttab
-set ts=2 "set indent to two spaces
-set noincsearch
-set ignorecase smartcase
-set laststatus=2  " Always show status line.
-set relativenumber
-set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-set autoindent " always set autoindenting on
-set bg=light
+" Themes...
+set background=dark
+colorscheme solarized
 
-" Set the tag file search order
-set tags=./tags;
-set tags+=gems.tags
-
-" Use _ as a word-separator
-" set iskeyword-=_
-
-" Use Silver Searcher instead of grep
-set grepprg=ag
-
-" Get rid of the delay when hitting esc!
-set noesckeys
-" With syntax group debugging.
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=\                            " single space
 set statusline+=%f\                          " file name
 set statusline+=[%{strlen(&ft)?&ft:'none'}]  " filetype
 set statusline+=%h%m%r%w                     " flags
 set statusline+=%=                           " right align
-"set statusline+=(%{synIDattr(synID(line('.'),col('.'),1),'name')})\  " highlight
 set statusline+=%P
+
+" Use Silver Searcher instead of grep
+set grepprg=ag
 
 " File encding.
 set encoding=utf-8
-
-" Where to store swap files.
-set directory=~/.tmp
 
 " Keyboard shortcuts
 source $HOME/.dotfiles/vim/keyboard_shortcuts.vim
@@ -76,22 +54,8 @@ source $HOME/.dotfiles/vim/keyboard_shortcuts.vim
 " Rename current file (courtesy of Gary Bernhardt)
 source $HOME/.dotfiles/vim/rename_current_file.vim
 
-" Themes
-source $HOME/.dotfiles/vim/themes.vim
-
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-" RSpec.vim mappings
-let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'
-
-" Syntax Highlighting
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown textwidth=79 colorcolumn=80
-autocmd BufNewFile,BufReadPost nginx.conf set filetype=nginx
-autocmd BufNewFile,BufReadPost *.rb,Gemfile,Vagrantfile,*.thor set filetype=ruby textwidth=79 colorcolumn=80
-
-" Remove trailing whitespace!
-au BufWritePre *.rb :%s/\s\+$//e
-au BufWritePre *.rake :%s/\s\+$//e
-au BufWritePre *.haml :%s/\s\+$//e
-au BufWritePre *.coffee :%s/\s\+$//e
+" ESC to cancel in Command-T
+let g:CommandTCancelMap=['<ESC>','<C-c>']

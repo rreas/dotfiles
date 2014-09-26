@@ -3,13 +3,15 @@
 let mapleader=","
 let maplocalleader=","
 
+" Well...
+nnoremap ; :
+vnoremap ; :
+
 map <Leader>a  :Ack
 map <Leader>a  :call    RunAllSpecs()<CR>
-map <Leader>b  :!bundle install<cr>
+map <Leader>bi :!bundle install<cr>
 map <Leader>e  :e       <C-R>=expand("%:p:h") . '/'<CR>
 map <leader>ev :vsplit  $MYVIMRC<cr>
-map <Leader>f :CommandTFlush<CR>
-map <Leader>h :CommandT<CR>
 map <Leader>l  :call    RunLastSpec()<CR>
 map <Leader>i  mmgg=G`m<CR>
 map <Leader>q  :e       ~/qcentrix/
@@ -27,8 +29,10 @@ map <C-l> :<Space>
 map <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+
+map <Leader>f :CommandTFlush<CR>
+map <Leader>h :CommandT<CR>
+map <C-p> :CommandT<CR>
 
 " Normal mode
 nnoremap H          ^
@@ -46,3 +50,5 @@ inoremap <c-o>      <esc>
 " Visual mode
 vmap <Enter> <Plug>(EasyAlign)*
 
+" RSpec.vim mappings
+let g:rspec_command='call Send_to_Tmux("be rspec {spec}\n")'

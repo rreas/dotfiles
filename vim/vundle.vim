@@ -9,6 +9,7 @@ Plugin 'gmarik/vundle'
 Plugin 'flazz/vim-colorschemes'
 
 " Autocomplete
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'wincent/Command-T'
 
 Plugin 'tpope/vim-sensible'
@@ -52,4 +53,3 @@ Plugin 'junegunn/vim-easy-align'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
